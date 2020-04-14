@@ -12,15 +12,18 @@ import java.util.Map;
 public class GraphQLDataFetchers {
 
     private static List<Map<String, String>> autoPolicies = Arrays.asList(
-            ImmutableMap.of("phoneNumber", "8447838484",
+            ImmutableMap.of("id","4",
+                    "phoneNumber", "8447838484",
                     "planName", "Harry Potter and the Philosopher's Stone",
                     "policyNumber", "223",
                     "registrationNumber", "author-1"),
-            ImmutableMap.of("phoneNumber", "1234567891",
+            ImmutableMap.of("id","5",
+                    "phoneNumber", "1234567891",
                     "planName", "Moby Dick",
                     "policyNumber", "635",
                     "registrationNumber", "author-2"),
-            ImmutableMap.of("phoneNumber", "3423456789",
+            ImmutableMap.of("id","6",
+                    "phoneNumber", "3423456789",
                     "planName", "Interview with the vampire",
                     "policyNumber", "371",
                     "registrationNumber", "author-3")
@@ -43,10 +46,10 @@ public class GraphQLDataFetchers {
 
     public DataFetcher getAutoQueryDataFetcher() {
         return dataFetchingEnvironment -> {
-            String phoneNumber = dataFetchingEnvironment.getArgument("phoneNumber");
+            String id = dataFetchingEnvironment.getArgument("id");
             return autoPolicies
                     .stream()
-                    .filter(autoPolicy -> autoPolicy.get("phoneNumber").equals(phoneNumber))
+                    .filter(autoPolicy -> autoPolicy.get("id").equals(id))
                     .findFirst()
                     .orElse(null);
         };

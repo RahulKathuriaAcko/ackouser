@@ -1,9 +1,10 @@
 type Query {
-  AutoPolicyByPhoneNumber(phoneNumber: String): [Auto]
-  ElectronicsPolicyByPhoneNumber(phoneNumber: String): [Electronics]
+  AutoPolicyByPhoneNumber(id: ID): Auto
+  ElectronicsPolicyByPhoneNumber(phoneNumber: String): Electronics
 }
 
 type Auto {
+  id: ID
   phoneNumber: String
   planName: String
   policyNumber: String
