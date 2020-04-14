@@ -1,0 +1,18 @@
+type Query {
+  AutoPolicyByPhoneNumber(phoneNumber: String): [Auto]
+  ElectronicsPolicyByPhoneNumber(phoneNumber: String): [Electronics]
+}
+
+type Auto {
+  phoneNumber: String
+  planName: String
+  policyNumber: String
+  registrationNumber: String
+}
+
+type Electronics {
+  phoneNumber: String
+  planName: String
+  policyNumber: String
+  productCategory: String
+}
