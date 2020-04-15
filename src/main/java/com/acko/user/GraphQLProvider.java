@@ -49,9 +49,9 @@ public class GraphQLProvider {
 
     private RuntimeWiring buildWiring() {
         return RuntimeWiring.newRuntimeWiring()
-                .type(newTypeWiring("AutoQuery")
+                .type(newTypeWiring("Query")
                         .dataFetcher("AutoPolicyByPhoneNumber", graphQLDataFetchers.getAutoQueryDataFetcher()))
-                .type(newTypeWiring("ElectronicsQuery")
+                .type(newTypeWiring("Query")
                         .dataFetcher("ElectronicsPolicyByPhoneNumber", graphQLDataFetchers.getElectroniceQueryDataFetcher()))
                 .build();
     }
